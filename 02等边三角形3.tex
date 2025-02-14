@@ -1,17 +1,17 @@
 \documentclass[tikz,border=12pt]{standalone}
 \begin{document}
 \begin{tikzpicture}
-    % ¶¨Òåµã A¡¢B¡¢CµÄ×ø±ê
+    % å®šä¹‰ç‚¹ Aã€Bã€Cçš„åæ ‡
     \coordinate (A) at (0:0);
     \coordinate (B) at (0:5);
     \coordinate (C) at (60:5);
     
-    % ±ê×¢µãA¡¢B¡¢C
+    % æ ‡æ³¨ç‚¹Aã€Bã€C
     \node[below left] at (A) {$A$};
     \node[below right] at (B) {$B$};
     \node[above] at (C) {$C$};
     
-    % »æÖÆ´Ó A µ½ B µÄÏß¶Î
+    % ç»˜åˆ¶ä» A åˆ° B çš„çº¿æ®µ
     \draw[thick] (A) -- (B) -- (C) -- (A);
 \end{tikzpicture}
 \end{document}

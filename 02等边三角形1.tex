@@ -4,29 +4,29 @@
 \begin{document}
 
 \begin{tikzpicture}
-    % ¶¨ÒåµãAºÍB
+    % å®šä¹‰ç‚¹Aå’ŒB
     \coordinate (A) at (0, 0);
     \coordinate (B) at (4, 0);
     
-    % »æÖÆÏß¶ÎAB
+    % ç»˜åˆ¶çº¿æ®µAB
     \draw[thick] (A) -- (B);
     
-    % »æÖÆÒÔAÎªÔ²ĞÄ£¬ABÎª°ë¾¶µÄÔ²
+    % ç»˜åˆ¶ä»¥Aä¸ºåœ†å¿ƒï¼ŒABä¸ºåŠå¾„çš„åœ†
     \draw[thick, dashed, name path=CA] (A) circle (4);
     
-    % »æÖÆÒÔBÎªÔ²ĞÄ£¬ABÎª°ë¾¶µÄÔ²
+    % ç»˜åˆ¶ä»¥Bä¸ºåœ†å¿ƒï¼ŒABä¸ºåŠå¾„çš„åœ†
     \draw[thick, dashed, name path=CB] (B) circle (4);
     
-    % ¼ÆËã½»µãPµÄ×ø±ê
+    % è®¡ç®—äº¤ç‚¹Pçš„åæ ‡
     \path [name intersections={of=CA and CB, by={P}}];
     
-    % »æÖÆµãP
+    % ç»˜åˆ¶ç‚¹P
     \filldraw[black] (P) circle (1pt);
     
-    % »æÖÆÈı½ÇĞÎ
+    % ç»˜åˆ¶ä¸‰è§’å½¢
     \draw[thick] (A) -- (P) -- (B) -- cycle;
     
-    % ±ê×¢µãA¡¢BºÍP
+    % æ ‡æ³¨ç‚¹Aã€Bå’ŒP
     \node[below left] at (A) {A};
     \node[below right] at (B) {B};
     \node[above] at (P) {P};
