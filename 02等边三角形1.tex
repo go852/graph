@@ -1,0 +1,36 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{intersections,through}
+\begin{document}
+
+\begin{tikzpicture}
+    % 定义点A和B
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (4, 0);
+    
+    % 绘制线段AB
+    \draw[thick] (A) -- (B);
+    
+    % 绘制以A为圆心，AB为半径的圆
+    \draw[thick, dashed, name path=CA] (A) circle (4);
+    
+    % 绘制以B为圆心，AB为半径的圆
+    \draw[thick, dashed, name path=CB] (B) circle (4);
+    
+    % 计算交点P的坐标
+    \path [name intersections={of=CA and CB, by={P}}];
+    
+    % 绘制点P
+    \filldraw[black] (P) circle (1pt);
+    
+    % 绘制三角形
+    \draw[thick] (A) -- (P) -- (B) -- cycle;
+    
+    % 标注点A、B和P
+    \node[below left] at (A) {A};
+    \node[below right] at (B) {B};
+    \node[above] at (P) {P};
+\end{tikzpicture}
+
+\end{document}
+
