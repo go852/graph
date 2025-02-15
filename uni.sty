@@ -32,16 +32,16 @@
 
 % 重新定义各个字体大小
 \newcommand{\unisetfontsize}{
-	\renewcommand{\tiny}{\fontsize{10pt}{10pt}\selectfont} % 5,6
-	\renewcommand{\scriptsize}{\fontsize{12pt}{12pt}\selectfont} % 6,7
-	\renewcommand{\footnotesize}{\fontsize{14pt}{14pt}\selectfont} % 7,8
-	\renewcommand{\small}{\fontsize{16pt}{16pt}\selectfont} % 8,9
-	\renewcommand{\normalsize}{\fontsize{20pt}{20pt}\selectfont} % 10,12
-	\renewcommand{\large}{\fontsize{24pt}{24pt}\selectfont} % 12,14
-	\renewcommand{\Large}{\fontsize{28pt}{28pt}\selectfont} % 14,16
-	\renewcommand{\LARGE}{\fontsize{32pt}{32pt}\selectfont} % 16,18
-	\renewcommand{\huge}{\fontsize{40pt}{40pt}\selectfont} % 20,24
-	\renewcommand{\Huge}{\fontsize{48pt}{48pt}\selectfont} % 24,28
+	\renewcommand{\tiny}{\fontsize{10pt}{14pt}\selectfont} % 5,6
+	\renewcommand{\scriptsize}{\fontsize{14pt}{18pt}\selectfont} % 6,7
+	\renewcommand{\footnotesize}{\fontsize{16pt}{20pt}\selectfont} % 7,8
+	\renewcommand{\small}{\fontsize{18pt}{24pt}\selectfont} % 8,9
+	\renewcommand{\normalsize}{\fontsize{20pt}{28pt}\selectfont} % 10,12
+	\renewcommand{\large}{\fontsize{24pt}{32pt}\selectfont} % 12,14
+	\renewcommand{\Large}{\fontsize{28pt}{36pt}\selectfont} % 14,16
+	\renewcommand{\LARGE}{\fontsize{36pt}{48pt}\selectfont} % 16,18
+	\renewcommand{\huge}{\fontsize{40pt}{54pt}\selectfont} % 20,24
+	\renewcommand{\Huge}{\fontsize{48pt}{60pt}\selectfont} % 24,28
 }
 
 % 定义figinclude命令，自动加上\begin{tikzpicture}与\end{tikzpicture}指令
@@ -55,12 +55,12 @@
 \newcommand{\unilstset}[1]{
 \lstset{
     language=#1,                                                     % 设置语言为 Python
-    basicstyle=\ttfamily\normalsize,                         % 设置基本字体为等宽字体，字体大小为小
+    basicstyle=\sffamily\normalsize,                         % 设置基本字体为等宽字体，字体大小为小
     keywordstyle=\color{orange}\bfseries,               % 关键字用橙色和加粗显示
     commentstyle=\color{red},                                 % 注释用红色显示
     stringstyle=\color{blue},                                     % 字符串用蓝色显示
     numbers=left,                                                    % 在左侧显示行号
-    numberstyle=\tiny\color{gray},                          % 行号为灰色且字号为小
+    numberstyle=\tiny\color[RGB]{192,192,192},    % 行号为灰色且字号为小
     stepnumber=1,                                                  % 每1行显示一个行号
     frame=single,                                                    % 给代码加框
     backgroundcolor=\color[RGB]{224,224,224},   % 背景色为浅灰色
