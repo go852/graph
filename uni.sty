@@ -1,0 +1,70 @@
+% uni.sty (universal style)
+\ProvidesPackage{uni}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{ctex} % 引入 ctex 包
+\RequirePackage{enumitem} % 有序列表
+\RequirePackage{hyperref} % 用于创建超链接
+\RequirePackage{listings} % 语法高亮
+\RequirePackage{pgfplots}
+\RequirePackage{setspace} % 设置行间距
+\RequirePackage{tikz} % 引入 TikZ 包
+\RequirePackage{xcolor}
+
+% 使用 TikZ 库
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+\usetikzlibrary{intersections}
+\usetikzlibrary{through}
+
+\pgfplotsset{compat=1.18} %兼容到1.18版及以下版本的特性
+
+% 全局设置
+%\setlength{\baselineskip}{14pt}  % 调整全局行距
+
+% 定义命令
+% 定义页面大小
+\newcommand{\unibigpaper}{
+	\RequirePackage{geometry}
+	\geometry{paperwidth=320mm, paperheight=180mm}
+%	\unisetfontsize
+}
+
+% 重新定义各个字体大小
+\newcommand{\unisetfontsize}{
+	\renewcommand{\tiny}{\fontsize{10pt}{12pt}\selectfont} % 5,6
+	\renewcommand{\scriptsize}{\fontsize{12pt}{14pt}\selectfont} % 6,7
+	\renewcommand{\footnotesize}{\fontsize{14pt}{16pt}\selectfont} % 7,8
+	\renewcommand{\small}{\fontsize{16pt}{18pt}\selectfont} % 8,9
+	\renewcommand{\normalsize}{\fontsize{20pt}{24pt}\selectfont} % 10,12
+	\renewcommand{\large}{\fontsize{14pt}{28pt}\selectfont} % 12,14
+	\renewcommand{\Large}{\fontsize{28pt}{32pt}\selectfont} % 14,16
+	\renewcommand{\LARGE}{\fontsize{32pt}{36pt}\selectfont} % 16,18
+	\renewcommand{\huge}{\fontsize{40pt}{48pt}\selectfont} % 20,24
+	\renewcommand{\Huge}{\fontsize{48pt}{60pt}\selectfont} % 24,28
+}
+
+% 定义figinclude命令，自动加上\begin{tikzpicture}与\end{tikzpicture}指令
+\newcommand{\figinclude}[1]{
+  \begin{tikzpicture}
+    \input{#1}
+  \end{tikzpicture}
+}
+
+% 自定义unilstset命令
+\newcommand{\unilstset}[1]{
+\lstset{
+    language=#1,                                                     % 设置语言为 Python
+    basicstyle=\ttfamily\normalsize,                         % 设置基本字体为等宽字体，字体大小为小
+    keywordstyle=\color{orange}\bfseries,               % 关键字用橙色和加粗显示
+    commentstyle=\color{red},                                 % 注释用红色显示
+    stringstyle=\color{blue},                                     % 字符串用蓝色显示
+    numbers=left,                                                    % 在左侧显示行号
+    numberstyle=\tiny\color{gray},                          % 行号为灰色且字号为小
+    stepnumber=1,                                                  % 每1行显示一个行号
+    frame=single,                                                    % 给代码加框
+    backgroundcolor=\color[RGB]{224,224,224},   % 背景色为浅灰色
+    showstringspaces=false,                                  % 不显示字符串中的空格
+    tabsize=2,                                                         % 设置tab键为2个空格宽
+}
+}
