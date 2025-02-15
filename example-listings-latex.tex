@@ -1,0 +1,36 @@
+\documentclass{ctexbeamer}
+\usepackage{listings}
+\usepackage{xcolor}  % 可选：添加颜色
+
+\begin{document}
+
+\begin{frame}[fragile]
+\frametitle{LaTex作图模板代码}
+
+\lstset{
+  language=TeX,
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{lightgray},
+  keywordstyle=\color{orange},
+  commentstyle=\color{red},
+  stringstyle=\color{blue},
+  frame=single, 
+  numbers=left
+}
+\begin{lstlisting}
+\documentclass [tikz, border=12pt] {standalone}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+%详细作图的指令
+
+\end{tikzpicture}
+
+\end{document}
+\end{lstlisting}
+
+\end{frame}
+
+\end{document}

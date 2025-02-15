@@ -1,0 +1,15 @@
+\documentclass[tikz, border=12pt]{standalone}
+\usepackage{pgfplots}
+\begin{document}
+\begin{tikzpicture}
+%    \path[name path=A1] (0,0) arc[start angle=55, end angle=65, radius=5];
+    % 如果你想可视化这个路径
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (5,0);
+    
+    \draw [shift=(55:5)] (0,0) arc[start angle=55, end angle=65, radius=5];
+    \draw [shift=(125:5)] (5,0) arc(125:115:5);
+    
+    \draw (A) -- (B); % -- (60:5) -- cycle;
+\end{tikzpicture}
+\end{document}

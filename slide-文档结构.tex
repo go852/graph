@@ -1,0 +1,24 @@
+\begin{frame}[fragile]
+\frametitle{LaTex文档结构}
+
+\lstset{
+  language=TeX,
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{lightgray},
+  keywordstyle=\color{orange},
+  commentstyle=\color{red},
+  stringstyle=\color{blue},
+  frame=single, 
+  numbers=left,
+  label={lst:sum},
+}
+\begin{lstlisting}
+\documentclass{...} % ... 为某文档类
+% 导言区
+\begin{document}
+% 正文内容
+\end{document}
+% 此后内容会被忽略
+\end{lstlisting}
+
+\end{frame}

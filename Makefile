@@ -22,6 +22,7 @@ clean:
 	@rm -f *.out
 	@rm -f *.snm
 	@rm -f *.toc
+	@rm -f *.vrb
 	@rm -f *.xdv
 
 distclean : clean

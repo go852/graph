@@ -1,7 +1,21 @@
+\begin{frame}[fragile]
+\frametitle{LaTex作图-等边三角形1}
+
+\lstset{
+  language=TeX,
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{lightgray},
+  keywordstyle=\color{orange},
+  commentstyle=\color{red},
+  stringstyle=\color{blue},
+  frame=single, 
+  numbers=left,
+  label={lst:sum},
+}
+\begin{lstlisting}
 \documentclass[tikz, border=12pt]{standalone}
 \usetikzlibrary{intersections, through}
 \begin{document}
-
 \begin{tikzpicture}
     \coordinate (A) at (0, 0); % 定义坐标A
     \coordinate (B) at (5, 0); % 定义坐标B
@@ -14,6 +28,6 @@
     \node[below right] at (B) {B}; % 标注B
     \node[above] at (P) {P}; % 标注P
 \end{tikzpicture}
-
 \end{document}
-
+\end{lstlisting}
+\end{frame}
