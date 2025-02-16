@@ -1,15 +1,17 @@
-MAIN=七年级上册重点
 SHELL=bash
-LATEXMK=latexmk -xelatex
+LATEX=xelatex --shell-escape
+LATEXMK=latexmk -xelatex -quiet --shell-escape
 TEX=$(wildcard *.tex)
 PDF=$(TEX:.tex=.pdf)
+MAIN=00用tikz绘制数学图形
 
 .PHONY:c d clean distclean
 
-all:$(PDF)
+all:$(MAIN).pdf
 #	@echo $(PDF)
 
 %.pdf:%.tex
+	@echo $(LATEXMK) $<
 	$(LATEXMK) $<
 
 clean: 
@@ -24,6 +26,7 @@ clean:
 	@rm -f *.toc
 	@rm -f *.vrb
 	@rm -f *.xdv
+	@rm -rf _minted 
 
 distclean : clean
 	@rm -f *.pdf

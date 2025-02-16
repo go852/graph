@@ -5,11 +5,14 @@
 \RequirePackage{ctex} % 引入 ctex 包
 \RequirePackage{enumitem} % 有序列表
 \RequirePackage{hyperref} % 用于创建超链接
+\usepackage{ifthen}  % 用于检查可选参数是否存在
 \RequirePackage{listings} % 语法高亮
+\usepackage{minted} % 语法高亮
 \RequirePackage{pgfplots}
 \RequirePackage{setspace} % 设置行间距
 \RequirePackage{tikz} % 引入 TikZ 包
 \RequirePackage{xcolor}
+
 
 % 使用 TikZ 库
 \usetikzlibrary{arrows.meta}
@@ -20,6 +23,44 @@
 \pgfplotsset{compat=1.18} %兼容到1.18版及以下版本的特性
 
 % 定义命令
+\definecolor{uLightGray}{rgb}{0.9, 0.9, 0.9} % 定义背景颜色
+\definecolor{uCommentColor}{rgb}{0.0, 0.5, 0.0}  % 定义注释颜色
+
+% 使用 \setminted 设置全局参数
+\newcommand{\uSetMinted}{
+\setminted{
+  frame=single,               % 设置边框类型
+  framesep=5pt,              % 设置边框和代码的间距
+  linenos=true,                 % 显示行号
+  bgcolor=uLightGray,     % 设置背景颜色
+  fontsize=\normalsize,    % 设置字体大小
+  numbersep=5pt,            % 设置行号和代码的间距
+  style=xcode,                  % 选择语法高亮风格
+  xleftmargin=24pt,           % 设置左侧缩进
+  xrightmargin=24pt,         % 设置右侧缩进 
+  fontfamily=tt,                  % 字体：默认tt，等宽字体；rm，衬线字体；sf，无衬线字体
+  numberblanklines=true, % 空行是否显示行号
+}
+}
+
+% 自定义uListSet命令
+\newcommand{\uListSet}[1]{
+\lstset{
+    language=#1,                                                     % 设置语言为 Python
+    basicstyle=\ttfamily\normalsize,                         % 设置基本字体
+    keywordstyle=\color{orange}\bfseries,               % 关键字用橙色和加粗显示
+    commentstyle=\color{red},                                 % 注释用红色显示
+    stringstyle=\color{blue},                                     % 字符串用蓝色显示
+    numbers=left,                                                    % 在左侧显示行号
+    numberstyle=\small\color[RGB]{96,96,96},       % 行号为灰色且字号为小
+    stepnumber=1,                                                  % 每1行显示一个行号
+    frame=single,                                                    % 给代码加框
+    backgroundcolor=\color[RGB]{224,224,224},   % 背景色为浅灰色
+    showstringspaces=false,                                  % 不显示字符串中的空格
+    tabsize=2,                                                         % 设置tab键为2个空格宽
+}
+}
+
 % 定义页面大小
 \newcommand{\uBigPaper}{
 	\RequirePackage{geometry}
@@ -62,20 +103,6 @@
 	\end{tikzpicture}
 }
 
-% 自定义unilstset命令
-\newcommand{\uListSet}[1]{
-\lstset{
-    language=#1,                                                     % 设置语言为 Python
-    basicstyle=\ttfamily\normalsize,                         % 设置基本字体
-    keywordstyle=\color{orange}\bfseries,               % 关键字用橙色和加粗显示
-    commentstyle=\color{red},                                 % 注释用红色显示
-    stringstyle=\color{blue},                                     % 字符串用蓝色显示
-    numbers=left,                                                    % 在左侧显示行号
-    numberstyle=\small\color[RGB]{96,96,96},       % 行号为灰色且字号为小
-    stepnumber=1,                                                  % 每1行显示一个行号
-    frame=single,                                                    % 给代码加框
-    backgroundcolor=\color[RGB]{224,224,224},   % 背景色为浅灰色
-    showstringspaces=false,                                  % 不显示字符串中的空格
-    tabsize=2,                                                         % 设置tab键为2个空格宽
-}
-}
+% 全局设置
+\uSetMinted
+%\uListSet

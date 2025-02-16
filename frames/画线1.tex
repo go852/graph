@@ -1,8 +1,7 @@
 \begin{frame}[fragile]
 \frametitle{LaTex作图-画线}
 
-\uListSet{TeX}
-\begin{lstlisting}
+\begin{minted}{TeX}
 \draw (1,0)  -- (14,0); % 画一条线
 \draw (1,1) to (6,2); % 画一条线
 \draw (9,1) -| (14,2); % 画一条折线（先水平，后垂直）
@@ -15,5 +14,5 @@
 \draw [dotted,line width=0.2cm] (1,6) -- (6,6); 
 % 虚线，stealth箭头
 \draw [dashed,->,>=stealth] (9,6) -- (14,6) ; 
-\end{lstlisting}
+\end{minted}
 \end{frame}
