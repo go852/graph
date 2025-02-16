@@ -11,6 +11,7 @@
 \RequirePackage{pgfplots}
 \RequirePackage{setspace} % 设置行间距
 \RequirePackage{tikz} % 引入 TikZ 包
+\RequirePackage{verbatim}
 \RequirePackage{xcolor}
 
 
@@ -29,17 +30,21 @@
 % 使用 \setminted 设置全局参数
 \newcommand{\uSetMinted}{
 \setminted{
-  frame=single,               % 设置边框类型
-  framesep=5pt,              % 设置边框和代码的间距
-  linenos=true,                 % 显示行号
-  bgcolor=uLightGray,     % 设置背景颜色
-  fontsize=\normalsize,    % 设置字体大小
-  numbersep=5pt,            % 设置行号和代码的间距
-  style=xcode,                  % 选择语法高亮风格
-  xleftmargin=24pt,           % 设置左侧缩进
-  xrightmargin=24pt,         % 设置右侧缩进 
-  fontfamily=tt,                  % 字体：默认tt，等宽字体；rm，衬线字体；sf，无衬线字体
-  numberblanklines=true, % 空行是否显示行号
+    autogobble=true,            % 自动去除多余空白行
+    bgcolor=black!5,             % 设置背景颜色
+    fontfamily=tt,                   % 字体：默认tt，等宽字体；rm，衬线字体；sf，无衬线字体    
+    fontsize=\normalsize,      % 设置字体大小    
+    frame=single,                  % 设置边框类型
+    framesep=5pt,                 % 设置边框和代码的间距
+    highlightcolor=yellow,      % 高亮颜色
+    linenos=true,                   % 显示行号
+    numberblanklines=true,   % 空行是否显示行号    
+    numbersep=5pt,              % 设置行号和代码的间距
+    showspaces=false,          % 是否显示空格  
+    style=xcode,                    % 选择语法高亮风格
+    tabsize=2,                        % 设置Tab大小    
+    xleftmargin=24pt,             % 设置左侧缩进
+    xrightmargin=24pt,           % 设置右侧缩进     
 }
 }
 
@@ -57,7 +62,7 @@
     frame=single,                                                    % 给代码加框
     backgroundcolor=\color[RGB]{224,224,224},   % 背景色为浅灰色
     showstringspaces=false,                                  % 不显示字符串中的空格
-    tabsize=2,                                                         % 设置tab键为2个空格宽
+    tabsize=2,                                                         % 设置tab键为2个空格宽    
 }
 }
 
@@ -95,14 +100,19 @@
 	\renewcommand{\Huge}{\fontsize{24pt}{28pt}\selectfont} % 24,28
 }
 
-% 定义figinclude命令，自动加上\begin{tikzpicture}与\end{tikzpicture}指令
-\newcommand{\uFigInclude}[1]{
+% 定义uInputTikz命令
+\newcommand{\uInputTikz}[1]{
 	\begin{tikzpicture}
 		\fontsize{14pt}{16pt}\selectfont % 设置normalsize
 		\input{#1}
 	\end{tikzpicture}
 }
 
+\newcommand{\uMintedFrame}[4][]{
+  \begin{frame}[t]{{#4}}
+  \inputminted[#1]{#2}{#3}
+  \end{frame}
+}
+
 % 全局设置
 \uSetMinted
-%\uListSet
