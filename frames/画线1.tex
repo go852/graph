@@ -1,0 +1,19 @@
+\begin{frame}[fragile]
+\frametitle{LaTex作图-画线}
+
+\uListSet{TeX}
+\begin{lstlisting}
+\draw (1,0)  -- (14,0); % 画一条线
+\draw (1,1) to (6,2); % 画一条线
+\draw (9,1) -| (14,2); % 画一条折线（先水平，后垂直）
+\draw (1,3) |- (6,4) ; % 画一条折线（先垂直，后水平）
+\draw (9,3) rectangle (14,4); % 画一个矩形
+\draw [red,thick] (1,5) -- (6,5); % 红色，线宽：thick
+% 蓝色，线宽：ultra thick
+\draw [blue,ultra thick] (9,5) -- (14,5); 
+% 点线，线宽0.2cm
+\draw [dotted,line width=0.2cm] (1,6) -- (6,6); 
+% 虚线，stealth箭头
+\draw [dashed,->,>=stealth] (9,6) -- (14,6) ; 
+\end{lstlisting}
+\end{frame}
